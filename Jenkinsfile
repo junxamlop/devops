@@ -1,11 +1,9 @@
+def COLOR_MAP = [
+    'SUCCESS': 'good', 
+    'FAILURE': 'danger',
+]
 pipeline {
     agent any
-    environment {
-        COLOR_MAP = [
-            'SUCCESS': 'good', 
-            'FAILURE': 'danger',
-        ]
-    }
 
     tools {
 	    maven "MAVEN3"
