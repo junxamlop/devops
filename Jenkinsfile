@@ -23,13 +23,11 @@ pipeline {
 
             steps {
                 withSonarQubeEnv('sonar') {
-                      sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=demo-jenkins \
-                -Dsonar.sources=src/ \
-                -Dsonar.host.url=http://sn01 \
-                -Dsonar.login=277f8a555a04e7173b83ff2992a723fadad3805d'''
-                  }
+                  sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=demo-jenkins \
+                  -Dsonar.sources=src/ \
+                  -Dsonar.host.url=http://sn01 \
+                  -Dsonar.login=277f8a555a04e7173b83ff2992a723fadad3805d'''
                 }
-
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
