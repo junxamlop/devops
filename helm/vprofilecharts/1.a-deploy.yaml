@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-a
+  labels:
+    app: cicd-a
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicd-a
+  template:
+    metadata:
+      labels:
+        app: cicd-a
+    spec:
+      nodeName: worker01.kb
+      containers:
+      - name: vproapp
+        image: {{ .Values.appimage}}
+        ports:
+        - containerPort: 8080
