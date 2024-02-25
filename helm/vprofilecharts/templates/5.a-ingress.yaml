@@ -14,6 +14,6 @@ spec:
           service:
             name: cicd-a
             port:
-              number: 8080 
+              number: 80
 status:
   loadBalancer: {}
